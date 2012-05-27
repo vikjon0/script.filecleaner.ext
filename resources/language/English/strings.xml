@@ -61,4 +61,19 @@
     <string id="34011">Hard disk capacity is 0. Did you select the correct hard disk to check for free space?</string>
     <string id="34012">Couldn't access %s</string>
     <string id="34013">No path selected to check for disk space. Please check your settings.</string>
+    
+    <!-- GUI-->
+    <string id="100">Save</string>
+    <string id="101">Cancel</string>
+    <string id="102">Reload</string>
+    <string id="103">Purge Holding</string>
+    <string id="130">Filecleaner TV Show Exceptions</string>
+    <string id="131">Keep</string>
+    <string id="132">Delete</string>
+    <string id="300">Saved to database</string>
+    <string id="301">Size of holding folder</string>
+    <string id="302">Holding purged</string>
+    <string id="303">Confirm deletion (Cannot be undon)</string>
+    <string id="304">Purge folder </string>
+    <string id="999">fix me</string>
 </strings>

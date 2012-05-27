@@ -1,3 +1,11 @@
+Version 0.1.0
+===============
+GUI added
+
+Version 0.0.3
+===============
+Service loop fix
+
 Version 0.0.1
 ===============
 Initial mod version
