@@ -19,7 +19,8 @@
         <setting id="delete_tvshows" type="bool" label="31009" default="false" visible="eq(-7,true)" />
 		<setting id="tv_default" type="labelenum" label="31021" values="delete|keep" default="keep" visible="eq(-1,true) + eq(-8,true)" />        
         <setting id="remove_from_autoexec" type="bool" label="" default="true" visible="false" />
-		
+		<setting id="use_password" type="bool" label="31022" default="false"   />
+		<setting id="password" option="hidden" type="text" label="31023" default="" visible="eq(-1,true)" />
     </category>
     
     <!-- Conditions Section -->

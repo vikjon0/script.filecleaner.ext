@@ -3,6 +3,7 @@ Version 0.1.1
 fixed purge disable
 fixed init db in GUI
 added save confirmation
+"password" added to avoid random user walking in
 
 Version 0.1.0
 ===============

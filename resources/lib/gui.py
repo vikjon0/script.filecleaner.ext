@@ -33,6 +33,17 @@ class GUI(xbmcgui.WindowXMLDialog):
         self.defineControls()
         self.reload_settings()
 
+        if self.use_password:
+            kb = xbmc.Keyboard("", getLS(307), True)
+            kb.doModal()
+            if (kb.isConfirmed()):
+                entered_pwd = kb.getText()
+            else:
+                entered_pwd = '' 
+            if entered_pwd !=self.password:
+                self.closeDialog()
+                return
+            
         self.status_label.setLabel(self.msg)
         
         self.showDialog()
@@ -369,8 +380,9 @@ class GUI(xbmcgui.WindowXMLDialog):
     
         #--vikjon0 mod---------
         self.tv_default = __settings__.getSetting('tv_default')
-
-
+        self.use_password = bool(__settings__.getSetting("use_password") == "true")
+        self.password = __settings__.getSetting('password')
+        
 def get_size(start_path = '.'):
     total_size = float(0)
     for dirpath, dirnames, filenames in os.walk(start_path):
