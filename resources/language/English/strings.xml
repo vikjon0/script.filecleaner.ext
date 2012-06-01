@@ -75,5 +75,7 @@
     <string id="302">Holding purged</string>
     <string id="303">Confirm deletion (Cannot be undon)</string>
     <string id="304">Purge folder </string>
+    <string id="305">Confirm Save</string>
+    <string id="306">Are you sure you want to change the delete/keep lists?</string>
     <string id="999">fix me</string>
 </strings>

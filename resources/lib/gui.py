@@ -113,12 +113,17 @@ class GUI(xbmcgui.WindowXMLDialog):
 
         #Save button
         elif controlId == self.control_save_button_id:
-            self.save_both_lists()
+            dialog = xbmcgui.Dialog()
+            response_yes = dialog.yesno(getLS(305), "%s" % getLS(306))
+            if response_yes:
+                self.save_both_lists()
+                
             self.readLists()
             self.updateList()
             
-            self.msg = getLS(300)
-            self.status_label.setLabel(self.msg)
+            if response_yes:
+                self.msg = getLS(300)
+                self.status_label.setLabel(self.msg)
             
         elif controlId == self.control_reload_button_id:
             self.readLists()

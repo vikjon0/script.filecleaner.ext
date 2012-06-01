@@ -1,5 +1,8 @@
 Version 0.1.1
 ===============
+fixed purge disable
+fixed init db in GUI
+added save confirmation
 
 Version 0.1.0
 ===============
