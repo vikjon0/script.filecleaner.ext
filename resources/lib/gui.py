@@ -40,9 +40,9 @@ class GUI(xbmcgui.WindowXMLDialog):
         if self.first == True:
             pass
             
-
-        
-        
+        if not self.holdingEnabled or self.holdingFolder == '' or self.holdingFolder == '/' :
+            self.purge_button.setEnabled(False)
+            
         #self.setFocus(self.list)
         #self.disconnect_button.setEnabled(False)
         #self.delete_button.setEnabled(False)
@@ -125,6 +125,9 @@ class GUI(xbmcgui.WindowXMLDialog):
             self.updateList()       
             
         elif controlId == self.control_purge_button_id:
+            if not self.holdingEnabled or self.holdingFolder == '' or self.holdingFolder == '/' :
+                return
+            
             dialog = xbmcgui.Dialog()
             if dialog.yesno(getLS(303), "%s (%s)" % (getLS(304),self.holdingFolder)):
                 delete_content(self.holdingFolder)             
@@ -189,7 +192,11 @@ class GUI(xbmcgui.WindowXMLDialog):
                     
                     query = "attach database '" + addon_db + "' as addon"
                     cur.execute(query)
-             
+                                
+                    query = "create table if not exists addon.tvshowsettings (idShow integer primary key, description text, autoDelete integer)"
+                    #autoDelete  0,1,2 = No, Yes, default (not in table = default)
+                    cur.execute(query)
+               
                     query = "select tvshow.idShow,tvshow.c00 as showname , autoDelete from tvshow "
                     query += " left outer join addon.tvshowsettings on addon.tvshowsettings.idShow = tvshow.idShow"
                     
@@ -231,6 +238,10 @@ class GUI(xbmcgui.WindowXMLDialog):
                     query = "attach database '" + addon_db + "' as addon"
                     cur.execute(query)
              
+                    query = "create table if not exists addon.tvshowsettings (idShow integer primary key, description text, autoDelete integer)"
+                    #autoDelete  0,1,2 = No, Yes, default (not in table = default)
+                    cur.execute(query)
+               
                     query = "select tvshow.idShow,tvshow.c00 as showname , autoDelete from tvshow "
                     query += " left outer join addon.tvshowsettings on addon.tvshowsettings.idShow = tvshow.idShow"
                     
